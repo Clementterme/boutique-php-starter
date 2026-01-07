@@ -285,119 +285,35 @@ require_once __DIR__ . '/../app/data.php';
 
 
                     <!-- MES ARTICLES (Intégration au projet - Jour 2) -->
+
+                    <?php foreach ($products as $product): ?>
+
                     <article class="product-card">
                         <div class="product-card__image-wrapper">
-                            <img src="https://via.placeholder.com/300x300/e2e8f0/64748b?text=Pull" alt="<?= $products[0]["name"] ?>" class="product-card__image">
+                            <img src="https://via.placeholder.com/300x300/e2e8f0/64748b?text=Pull" alt="<?= $product["name"] ?>" class="product-card__image">
                             <div class="product-card__badges"></div>
                         </div>
                         <div class="product-card__content">
-                            <span class="product-card__category"><?= $products[0]["category"] ?></span>
-                            <a href="produit.html?id=7" class="product-card__title"><?= $products[0]["name"] ?></a>
-                            <div class="product-card__price"><span class="product-card__price-current"><?= $products[0]["price"] ?></span></div>
-                            <p class="product-card__stock product-card__stock--available">✓ En stock (<?= $products[0]["stock"] ?>)</p>
+                            <span class="product-card__category"><?= $product["category"] ?></span>
+                            <a href="produit.html?id=7" class="product-card__title"><?= $product["name"] ?></a>
+                            <div class="product-card__price"><span class="product-card__price-current"><?= $product["price"] ?></span></div>
+
+                            <?php if($product["stock"] > 0) { ?>
+                                <p class="product-card__stock product-card__stock--available">✓ En stock (<?= $product["stock"] ?>)</p>
+                            <?php } else { ?>
+                                <p class="product-card__stock product-card__stock--out">✗ Rupture</p>
+                            <?php } ?>
+
                             <div class="product-card__actions">
                                 <form action="panier.html" method="POST">
                                     <input type="hidden" name="product_id" value="7">
                                     <button type="submit" class="btn btn--primary btn--block">Ajouter</button>
-                                </form>
+                                </form> 
                             </div>
                         </div>
                     </article>
 
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="https://via.placeholder.com/300x300/e2e8f0/64748b?text=Pull" alt="<?= $products[1]["name"] ?>" class="product-card__image">
-                            <div class="product-card__badges"></div>
-                        </div>
-                        <div class="product-card__content">
-                            <span class="product-card__category"><?= $products[1]["category"] ?></span>
-                            <a href="produit.html?id=7" class="product-card__title"><?= $products[1]["name"] ?></a>
-                            <div class="product-card__price"><span class="product-card__price-current"><?= $products[1]["price"] ?></span></div>
-                            <p class="product-card__stock product-card__stock--available">✓ En stock (<?= $products[1]["stock"] ?>)</p>
-                            <div class="product-card__actions">
-                                <form action="panier.html" method="POST">
-                                    <input type="hidden" name="product_id" value="7">
-                                    <button type="submit" class="btn btn--primary btn--block">Ajouter</button>
-                                </form>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="https://via.placeholder.com/300x300/e2e8f0/64748b?text=Pull" alt="<?= $products[2]["name"] ?>" class="product-card__image">
-                            <div class="product-card__badges"></div>
-                        </div>
-                        <div class="product-card__content">
-                            <span class="product-card__category"><?= $products[2]["category"] ?></span>
-                            <a href="produit.html?id=7" class="product-card__title"><?= $products[2]["name"] ?></a>
-                            <div class="product-card__price"><span class="product-card__price-current"><?= $products[2]["price"] ?></span></div>
-                            <p class="product-card__stock product-card__stock--available">✓ En stock (<?= $products[2]["stock"] ?>)</p>
-                            <div class="product-card__actions">
-                                <form action="panier.html" method="POST">
-                                    <input type="hidden" name="product_id" value="7">
-                                    <button type="submit" class="btn btn--primary btn--block">Ajouter</button>
-                                </form>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="https://via.placeholder.com/300x300/e2e8f0/64748b?text=Pull" alt="<?= $products[3]["name"] ?>" class="product-card__image">
-                            <div class="product-card__badges"></div>
-                        </div>
-                        <div class="product-card__content">
-                            <span class="product-card__category"><?= $products[3]["category"] ?></span>
-                            <a href="produit.html?id=7" class="product-card__title"><?= $products[3]["name"] ?></a>
-                            <div class="product-card__price"><span class="product-card__price-current"><?= $products[3]["price"] ?></span></div>
-                            <p class="product-card__stock product-card__stock--available">✓ En stock (<?= $products[3]["stock"] ?>)</p>
-                            <div class="product-card__actions">
-                                <form action="panier.html" method="POST">
-                                    <input type="hidden" name="product_id" value="7">
-                                    <button type="submit" class="btn btn--primary btn--block">Ajouter</button>
-                                </form>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="https://via.placeholder.com/300x300/e2e8f0/64748b?text=Pull" alt="<?= $products[4]["name"] ?>" class="product-card__image">
-                            <div class="product-card__badges"></div>
-                        </div>
-                        <div class="product-card__content">
-                            <span class="product-card__category"><?= $products[4]["category"] ?></span>
-                            <a href="produit.html?id=7" class="product-card__title"><?= $products[4]["name"] ?></a>
-                            <div class="product-card__price"><span class="product-card__price-current"><?= $products[4]["price"] ?></span></div>
-                            <p class="product-card__stock product-card__stock--available">✓ En stock (<?= $products[4]["stock"] ?>)</p>
-                            <div class="product-card__actions">
-                                <form action="panier.html" method="POST">
-                                    <input type="hidden" name="product_id" value="7">
-                                    <button type="submit" class="btn btn--primary btn--block">Ajouter</button>
-                                </form>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-card__image-wrapper">
-                            <img src="https://via.placeholder.com/300x300/e2e8f0/64748b?text=Pull" alt="<?= $products[5]["name"] ?>" class="product-card__image">
-                            <div class="product-card__badges"></div>
-                        </div>
-                        <div class="product-card__content">
-                            <span class="product-card__category"><?= $products[5]["category"] ?></span>
-                            <a href="produit.html?id=7" class="product-card__title"><?= $products[5]["name"] ?></a>
-                            <div class="product-card__price"><span class="product-card__price-current"><?= $products[5]["price"] ?></span></div>
-                            <p class="product-card__stock product-card__stock--available">✓ En stock (<?= $products[5]["stock"] ?>)</p>
-                            <div class="product-card__actions">
-                                <form action="panier.html" method="POST">
-                                    <input type="hidden" name="product_id" value="7">
-                                    <button type="submit" class="btn btn--primary btn--block">Ajouter</button>
-                                </form>
-                            </div>
-                        </div>
-                    </article>
+                    <?php endforeach; ?>
 
                 </div>
 
