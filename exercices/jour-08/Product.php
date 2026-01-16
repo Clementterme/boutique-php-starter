@@ -40,6 +40,11 @@ class Product
         $this->setPrix($this->prix - $discount);
     }
 
+    public function display(): string
+    {
+        return "Nom : " . $this->nom . "</br>Prix : " . $this->prix . "</br>Stock : " . $this->stock . "</br>Catégorie : " . $this->categorie;
+    }
+
         /**
          * Get the value of stock
          */ 
@@ -81,10 +86,10 @@ class Product
         }
 }
 
-$produit = new Product(1, "Produit 1", "Description du produit 1", 5, 20, "Catégorie 1");
+// $produit = new Product(1, "Produit 1", "Description du produit 1", 5, 20, "Catégorie 1");
 
-var_dump($produit->getPrix());
+// var_dump($produit->getPrix());
 
-$produit->applyDiscount(30);
+// $produit->applyDiscount(30);
 
-var_dump($produit->getPrix());
+// var_dump($produit->getPrix());
