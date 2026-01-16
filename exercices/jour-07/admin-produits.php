@@ -37,36 +37,6 @@ if (isset($_POST["ajouter"])) {
     exit;
 }
 
-if(isset($_POST["editForm"])) {
-
-?>
-
-<form method="post" action="">
-    <label>
-        Nom :
-        <input type="text" name="name" required>
-    </label>
-    <br><br>
-
-    <label>
-        Prix :
-        <input type="number" name="price" step="0.01" min="0" required>
-    </label>
-    <br><br>
-
-    <label>
-        Stock :
-        <input type="number" name="stock" min="0" required>
-    </label>
-    <br><br>
-
-    <button type="submit" name="modifier" value="<?= $product["id"] ?>">Modifier</button>
-</form>
-
-<?php
-
-}
-
 if(isset($_POST["modifier"])) {
     $stmt = $pdo->prepare("UPDATE products SET name = ?, price = ?, stock = ? WHERE id = ?");
 
@@ -96,6 +66,38 @@ foreach ($products as $product) {
         </form>
     </div>
 <?php
+
+if (isset($_POST["editForm"]) && $_POST["editForm"] == $product["id"]) {
+
+?>
+
+<form method="post" action="">
+    <input type="hidden" name="id" value="<?= $product["id"] ?>">
+
+    <label>
+        Nom :
+        <input type="text" name="name" value="<?= $product['name'] ?>" required>
+    </label>
+    <br><br>
+
+    <label>
+        Prix :
+        <input type="number" name="price" step="0.01" min="0" value="<?= $product['price'] ?>" required>
+    </label>
+    <br><br>
+
+    <label>
+        Stock :
+        <input type="number" name="stock" min="0" value="<?= $product['stock'] ?>" required>
+    </label>
+    <br><br>
+
+    <button type="submit" name="modifier" value="<?= $product["id"] ?>">Modifier</button>
+</form>
+
+<?php
+
+    }
 
 }
 
