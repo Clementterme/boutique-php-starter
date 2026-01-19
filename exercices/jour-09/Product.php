@@ -5,6 +5,7 @@ include_once("Category.php");
 class Product
 {
     public function __construct(
+        private int $id,
         private string $name,
         private float $price,
         private Category $category
@@ -24,17 +25,22 @@ class Product
         {
                 return $this->price;
         }
+
+    public function getId()
+        {
+                return $this->id;
+        }
 }
 
-$tshirt = new Product("T-shirt", 29.99, $vetements);
-$montreMetal = new Product("Montre en Métal", 129.99, $accessoires);
-$bottes = new Product("Bottes", 149.99, $chaussures);
-$pull = new Product("Pull", 49.99, $vetements);
-$ceintureCuir = new Product("Ceinture en Cuir", 59.99, $accessoires);
+$tshirt = new Product(1, "T-shirt", 29.99, $vetements);
+$montreMetal = new Product(2, "Montre en Métal", 129.99, $accessoires);
+$bottes = new Product(3, "Bottes", 149.99, $chaussures);
+$pull = new Product(4, "Pull", 49.99, $vetements);
+$ceintureCuir = new Product(5, "Ceinture en Cuir", 59.99, $accessoires);
 
 $cart = [$tshirt, $montreMetal, $bottes, $pull, $ceintureCuir];
 
 foreach($cart as $product) {
     echo $product->getName() . "<br>";
-    echo "Catégorie : " . $product->getCategory()->getName() . "<br>";
+    echo "Catégorie : " . $product->getCategory()->getName() . "<br>"; 
 }
