@@ -19,6 +19,11 @@ class Product
     {
             return $this->name;
     }
+
+    public function getPrice()
+        {
+                return $this->price;
+        }
 }
 
 $tshirt = new Product("T-shirt", 29.99, $vetements);
