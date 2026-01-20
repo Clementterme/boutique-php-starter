@@ -18,7 +18,7 @@ class Order
         return $this->cart->getTotal();
     }
 
-    public function showOrder()
+    public function showOrder(): void
     {
         foreach ($this->cart->getItems() as $item) {
             echo $item->getProduct()->getName();
@@ -27,7 +27,7 @@ class Order
         }
     }
 
-    public function getItemCount()
+    public function getItemCount(): int
     {
         $nbItems = 0;
         foreach ($this->cart->getItems() as $item) {

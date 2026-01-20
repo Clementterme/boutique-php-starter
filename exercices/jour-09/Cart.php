@@ -7,7 +7,7 @@ class Cart
     /** @var CartItem[] */
     private array $items = [];
     
-    public function addProduct(Product $product, int $quantity = 1): void
+    public function addProduct(Product $product, int $quantity = 1): self
     {
         $id = $product->getId();
         
@@ -19,11 +19,13 @@ class Cart
             // Nouveau produit
             $this->items[$id] = new CartItem($product, $quantity);
         }
+        return $this;
     }
     
-    public function removeProduct(int $productId): void
+    public function removeProduct(int $productId): self
     {
         unset($this->items[$productId]);
+        return $this;
     }
     
     public function getItems(): array
@@ -101,3 +103,6 @@ $monPanier->addProduct($bottes, 4);
 
 echo $monPanier->count();
 
+$monPanier  ->addProduct($tshirt, 5)
+            ->addProduct($pull, 2)
+            ->removeProduct(1);
