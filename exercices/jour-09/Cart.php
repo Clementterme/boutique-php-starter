@@ -96,3 +96,8 @@ var_dump($monPanier->getItems());
 $monPanier->update($ceintureCuir, 10);
 
 var_dump($monPanier);
+
+$monPanier->addProduct($bottes, 4);
+
+echo $monPanier->count();
+

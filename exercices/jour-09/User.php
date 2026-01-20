@@ -28,6 +28,11 @@ class User
     {
         return $this->addresses[0];
     }
+
+    // public function getAddress()
+    //     {
+    //             return $this->address;
+    //     }
 }
 
 $address = new Address("Rue du Campus", "Grenoble", "38000", "France");
