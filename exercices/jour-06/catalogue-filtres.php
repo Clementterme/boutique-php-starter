@@ -76,11 +76,11 @@ if(empty($search)) {
                     
                     if($maxPrice > $product["price"]) {
                         $result = $result + 1;
-                        echo $product["name"] . "</br>";
+                        echo $product["name"] . " " . $product["price"] . " €</br>";
                         }
                     } else {
                         $result = $result + 1;
-                        echo $product["name"] . "</br>";
+                        echo $product["name"] . " " . $product["price"] . " €</br>";
                     }
                 }
             }

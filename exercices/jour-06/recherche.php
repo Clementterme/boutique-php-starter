@@ -32,7 +32,7 @@ if(empty($search)) {
     foreach($products as $product) {
     if (stripos($product["name"], $search) !== false) {
         $result = $result + 1;
-        echo $product["name"];
+        echo $product["name"] . " " . $product["price"] . " €<br>";
        }
     }
 }
